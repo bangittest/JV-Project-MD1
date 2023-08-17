@@ -8,7 +8,7 @@ const inputdescription = document.getElementById("description")
 //hàm vẽ
 function Table(c = data) {
     // c.sort((a, b) => b.id - a.id);
-    c = JSON.parse(localStorage.getItem("product")) || []
+    // c = JSON.parse(localStorage.getItem("product")) || []
     let stringHTML = "";
     c.forEach(e => stringHTML +=
         `
@@ -32,6 +32,7 @@ function Table(c = data) {
     document.getElementById("table_body").innerHTML = stringHTML
 }
 Table()
+// location.reload()
 function toggleForm(id) {
     const data = JSON.parse(localStorage.getItem("product")) || []
     document.getElementById("form_scope").classList.toggle("hide")
@@ -89,6 +90,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
     this.reset()
     toggleForm()
     Table()
+    location.reload()
 })
 //xóa 1 phần tử
 function deleteProduct(id) {
@@ -100,14 +102,17 @@ function deleteProduct(id) {
     }
     localStorage.setItem("product", JSON.stringify(data))
     Table()
+    location.reload()
 }
 //seach
 function checkSearch() {
     let text = document.getElementById("search").value;
-    let foundS = data.filter(stu => stu.name.toLowerCase().includes(text.trim().toLowerCase()));
-    Table(foundS);
+    let foundStudent = data.filter(stu => stu.name.toLowerCase().includes(text.trim().toLowerCase()));
+    Table(foundStudent);
+    // location.reload()
 }
-//id tự tăng
+
+// id tự tăng
 function getNewId() {
     let idMax = 0;
     for (let i = 0; i < data.length; i++) {
@@ -118,6 +123,7 @@ function getNewId() {
     }
     return idMax + 1;
 }
+
 
 // const getCategoryNameByCategoryId = (id) => {
 //     // tim danh muc theo id
@@ -150,14 +156,6 @@ const handlePagination = (page = 0) => {
     Table(productPaginate)
     showPagination()
 }
-// đổ danh sách danh mục ra 
-// let str = "";
-// for (let i = 0; i < categories.length; i++) {
-//     const element = categories[i];
-//     str += `<option value="${element.id}">${element.name}</option>`;
-// }
-// document.getElementById("category").innerHTML = str;
-// document.getElementById("category_edit").innerHTML = str;
 handlePagination();
 
 
@@ -169,7 +167,7 @@ function confirmLogout() {
         alert("Đăng xuất thành công!");
         window.location.href = "../admin/adminlogin.html"
     }
-    // window.location.href = "../admin/adminlogin.html"
+
 }
 
 function toggleLogoutMenu(avatar) {

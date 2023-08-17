@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const productDescription = document.querySelector(".product-details p");
 
     // const descriptions = [
-    //     "Quần dài chất lượng cao, thích hợp cho mọi hoàn cảnh.",
-    //     "Sản phẩm được làm từ vải thoải mái, dễ dàng di chuyển.",
-    //     "Kiểu dáng thời trang và hiện đại, phù hợp cho nhiều lứa tuổi."
-    // ];
 
     function showImage(index) {
         if (index >= 0 && index < thumbnails.length) {
@@ -26,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
     showImage(0);
 });
 
+
+
+
+
 let idPro = JSON.parse(sessionStorage.getItem("producdetail"))
 if (idPro) {
     let products = JSON.parse(localStorage.getItem("product"))
@@ -33,7 +33,7 @@ if (idPro) {
     console.log(product);
     document.querySelector(".product-detail").innerHTML = `<div class="product-images">
                         <div class="main-image">
-                            <img width="200px" src="" alt="Quần dài" id="mainImage">
+                            <img width="200px" src="" alt="" id="mainImage">
                         </div>
                         <div class="thumbnail-images">
                             <img width="200px" src="img/products/${product.img}" class="thubnai11">
@@ -45,7 +45,7 @@ if (idPro) {
                         </div>
                     </div>
                     <div class="product-info">
-                        <h2>Quần dài</h2>
+                        <h2>${product.name}</h2>
                         <div class="price">
                             <label for="">Giá sản phẩm:</label> <br>
                             <span class="original-price">${product.sum} VND</span>
@@ -53,7 +53,7 @@ if (idPro) {
                         </div>
                         <div class="quantity">
                             <label for="quantity">Số lượng:</label> <br>
-                            <input type="number" id="quantity_ty" min="1">
+                            <input type="number" id="quantity_ty" min="1" value="1">
                         </div>
                         <div class="add-to-cart">
                             <button onclick="addToCart(${product.id})" class="add-to-cart-button">Thêm vào giỏ hàng</button>

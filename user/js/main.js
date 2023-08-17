@@ -1,64 +1,4 @@
-// //copu menu for mobile
-// function copyMenu() {
-//     //copy inside .dpt-cat to .dapartments
-//     let dptCategory = document.querySelector('.dpt-cat');
-//     let dptPlace = document.querySelector('.departments');
-//     dptPlace.innerHTML = dptCategory.innerHTML
 
-//     //copy inside nav to nav
-//     let mainNav = document.querySelector('.header-nav')
-//     let navPlace = document.querySelector('.off-canvas nav')
-//     navPlace.innerHTML = mainNav.innerHTML
-
-//     //copy header-top .wrapper to.thetop-nav
-//     let topNav = document.querySelector('.header-top .wrapper');
-//     let topPlace = document.querySelector('.off-canvas .thetop-nav')
-//     topPlace.innerHTML = topNav.innerHTML
-
-// }
-// copyMenu();
-
-
-// const menuButton = document.querySelector('.trigger')
-// closeButton = document.querySelector('.t-close')
-// addClass = document.querySelector('.site');
-
-// menuButton.addEventListener('click', function () {
-//     addClass.classList.toggle('showmenu')
-// })
-
-// closeButton.addEventListener('click', function () {
-//     addClass.classList.remove('showmenu')
-// })
-
-
-
-// const submenu = document.querySelectorAll('has-chil .icon-small');
-// submenu.forEach((menu) => menu.addEventListener('click', toggle));
-
-// function toggle(e) {
-//     e.preventDefault();
-//     submenu.forEach((item) => item != this ? item.closest('.has-child').classList.remove('expand') : null);
-//     if (this.closest('.has-child').classList != 'expand');
-//     this.closest('.has-child').classList.toggle('expand')
-// }
-
-
-
-const swiper = new Swiper('.swiper', {
-
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-    },
-});
-// function changeNextImage() {
-// }
-// changeNextImage()
-// let id = setInterval(changeNextImage(), 3000);
-// clearInterval(id);
 // lấy ra tài khoản đăng nhập hiện tại
 let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
 // lấy ra vị trí cần chèn tên và avatar
@@ -76,10 +16,11 @@ if (userLogin != null) { // nếu có tài khoản đăng nhập
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">trang ca nhan</a></li>
           <li><a class="dropdown-item" href="#">doi mat khau</a></li>
-          <li><a class="dropdown-item" onclick="handleLogout()" href="#">dang xuat</a></li>
+          <li><a class="dropdown-item" onclick="handlelLogout()" href="#">dang xuat</a></li>
         </ul>
       </div>`
     }
+
 } else { // chưa có tài khoản đăng nhập
     for (let i = 0; i < divs.length; i++) {
         const element = divs[i];
@@ -88,21 +29,17 @@ if (userLogin != null) { // nếu có tài khoản đăng nhập
 }
 
 
-const handleLogout = () => {
+const handlelLogout = () => {
     // thực hiện đăng xuất tài khoản
     sessionStorage.removeItem("userlogin");
     // load lại trang
     location.reload();
 }
+// handlelLogout()
 // localStorage.setItem("products", JSON.stringify([]))
 // let arr = [
 //     { name: "Bàn Học Bàn GameMing", price: 129998, selled: 297, img: "home3.jpg" }
 // ]
-
-
-
-
-
 
 // let str = ""
 // for (let i = 0; i < 10; i++) {
@@ -111,6 +48,9 @@ const handleLogout = () => {
 //     str += `
 //chọn mặc định giá trị in ra
 
+
+
+// danh sách phân trang
 let products = JSON.parse(localStorage.getItem("product"))
 let arrC = []
 let arrB = []
@@ -130,6 +70,7 @@ products.forEach(e => {
 // localStorage.setItem("product", JSON.stringify(products))
 function print(arr = products) {
     let str = ""
+    // forEach duyệt 1 mảng cụ thể
     arr.forEach(e =>
         str += `<div class="row products mini">
                 <div class="item">
@@ -160,7 +101,7 @@ function print(arr = products) {
                             
                             <p>Miễn phí vận chuyển</p>
                         </div>
-                            <button class="buttoncart" onclick="addToCart(${e.id})">ADD to CART</button>
+
                     </div>
                 </div>
             </div>`
@@ -175,29 +116,15 @@ function hanDoclick(id) {
     window.location.href = "user/description.html"
 }
 
-// const addToCart = (idProduct) => {
-//     let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-//     if (userLogin == null) {
-//         alert("Vui lòng đăng nhập đề xem giở hàng");
-//         location.href = "/user/login.html";
-//     }
-//     // lấy ra số lượng mua
 
-//     // nếu sp đã tồn tại trong giỏ hàng thì tăng số lượng
-//     let indexCartItem = userLogin.cart.findIndex(
-//         (cartIt) => cartIt.idPro == idProduct
-//     );
-//     if (indexCartItem > -1) {
-//         // đã tồn tại
-//         alert("Đã tồn tại trong giỏ hàng!")
-//     } else {
-//         // chưa tồn tại , thêm mới
-//         let cartItem = {
-//             idPro: idProduct,
-//             quantity: 1,
-//         };
-//         userLogin.cart.push(cartItem);
-//     }
-//     sessionStorage.setItem("userlogin", JSON.stringify(userLogin));
-//     location.href = "/user/cart.html";
-// };
+
+
+const swiper = new Swiper('.swiper', {
+
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+});

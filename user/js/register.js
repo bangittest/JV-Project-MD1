@@ -82,7 +82,7 @@ const validateEmail = (email) => {
 const validatePassword = (pass) => {
     return String(pass)
         .toLowerCase()
-        .match(/^.*(?=.{6,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/);
+        .match(/^.*(?=.{6,})(?=.*[a-zA-Z])(?=.*\d).*$/);
 }
 // hàm tự tăng id
 const getNewId = () => {

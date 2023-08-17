@@ -4,5 +4,5 @@ if (userLogin != null && userLogin.role == "ADMIN") {
     document.getElementById("avatar").src = `../user/img/${userLogin.avatar}`;
 } else {
     // nếu không có quyền
-    location.href = "/admin/403.html"
+    location.href = "/403.html"
 }

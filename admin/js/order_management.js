@@ -14,31 +14,7 @@ const inputphanLoai = document.getElementById("phanloai")
 const inputtime = document.getElementById("time")
 const inputdatetime = document.getElementById("datetime")
 
-// function Table() {
-//     // const data = JSON.parse(localStorage.getItem("product")) || []
-//     let stringHTML = "";
-//     data.forEach(e => stringHTML +=
-//         `
-//                 <tr>
-//                     <td>${e.id}</td>
-//                     <td>${e.name}</td>
-//                     <td>${e.sum}vnd</td>
-//                     <td>${e.phanloai}</td>
-//                     <td>${e.time}</td>
-//                     <td>${e.date}</td>
-//                     <td>
-//                         <div class="action_col">
-//                             <button class="btn btn_sua" onclick="toggleForm(${e.id})">Edit</button>
-//                              <button class="btn btn_xoa" onclick="deleteProduct(${e.id})">Delete</button>
-//                         </div>
-//                     </td>
-//                 </tr>
-//             `
-//     )
-//     document.getElementById("table_body").innerHTML = stringHTML
-// }
-// Table()
-// const data = JSON.parse(localStorage.getItem("user")) || []
+
 function Table() {
     const data = JSON.parse(localStorage.getItem("order")) || []
     let stringHTML = "";

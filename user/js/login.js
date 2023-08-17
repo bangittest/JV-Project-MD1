@@ -33,10 +33,10 @@ const handleLogin = () => {
 
 }
 
-const checkLogin = (username, password) => {
+const checkLogin = (username, password, email) => {
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
-        if (user.username === username && user.password === password) {
+        if ((user.username === username && user.password === password) || (user.email === email && user.password === password)) {
             return user;
         }
     }
@@ -45,12 +45,3 @@ const checkLogin = (username, password) => {
 }
 
 
-// const swiper = new Swiper('.swiper', {
-
-//     loop: true,
-
-//     // If we need pagination
-//     pagination: {
-//         el: '.swiper-pagination',
-//     },
-// });

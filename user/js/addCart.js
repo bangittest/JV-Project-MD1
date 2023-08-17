@@ -31,19 +31,22 @@ const showCart = () => {
     let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
     let products = JSON.parse(localStorage.getItem("product"))
     let total = 0;
+    // recduce hàm tính tổng
     let listCartItem = userLogin.cart.reduce((string, ct) => {
+        // find hàm có sẵn hàm này tìm được phần tử đầu tiên khi tìm được
+        //  giá trị đầu tiên thì trả về giá trị của nó ko thì trả về underfile
         // lấy thông tin sp theo id
         let product = products.find((p) => p.id == ct.idPro);
-
+        //công tiền 
         total += +product.sum * ct.quantity;
         return (
             string +
             `<tr>
                     <td>${product.id}</td>
-                    <td><img src="/user/img/products/${product.img}" alt="Product 1" class="product-image"></td>
+                    <td><img src="/user/img/products/${product.img}" alt="#" class="product-image"></td>
                     <td>${product.name}</td>
                     <td>${product.sum}đ</td>
-                    <td><input type="number" class="quantity-input" id="quantity_${ct.idPro}" value="${ct.quantity}"></td>
+                    <td><input type="number" class="quantity-input" id="quantity_${ct.idPro}" value="${ct.quantity}" min="1" ></td>
                     <td>${+product.sum * ct.quantity}đ</td>
                     <td class="action-btns">
                         <button class="update-btn" onclick="handleUpdate(${ct.idPro})" >Update</button>
