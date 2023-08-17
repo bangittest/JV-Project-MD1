@@ -94,8 +94,6 @@
                     <th>Serial</th>
                     <th>Ảnh</th>
                     <th>Tên sản phẩm</th>
-                    <th>Kích thước</th>
-                    <th>Màu sắc</th>
                     <th>Giá bán</th>
                     <th>Số lượng</th>
                     <th>Tổng cộng</th>
@@ -103,41 +101,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>ABC123</td>
                     <td><img src="/imgage/products/apparel1.jpg" alt="Product 1" class="product-image"></td>
                     <td>Product 1</td>
-                    <td>
-                        <select class="size-select">
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="xl">XL</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="color-select">
-                            <option value="red">Red</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
-                            <option value="black">Black</option>
-                        </select>
-                    </td>
                     <td>$20</td>
-                    <td><input type="number" class="quantity-input" value="1"></td>
+                    <td><input type="number" class="quantity-input"></td>
                     <td>$20</td>
                     <td class="action-btns">
                         <button class="update-btn">Update</button>
                         <button class="remove-btn">Remove</button>
                     </td>
-                </tr>
+                </tr> -->
                 <!-- Other rows -->
             </tbody>
         </table>
         <div class="cart-header">
             <button class="continue-btn"><a href="/home/main.html">Tiếp tục mua sắm</a></button>
             <h1>Tổng số mặt hàng: 3</h1>
-            <h1>Tổng cộng: $155</h1>
+            <h1>Tổng cộng: <h1 id="total_All">0</h1>
+            </h1>
         </div>
         <!-- Copyright © 2023. All Rights Reserved. -->
     </div>
@@ -180,6 +163,7 @@
         </div>
     </footer>
     <script src="/user/js/main.js"></script>
+    <script src="js/addCart.js"></script>
 </body>
 
 </html>

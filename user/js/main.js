@@ -101,23 +101,41 @@ const handleLogout = () => {
 
 
 
+
+
+
 // let str = ""
 // for (let i = 0; i < 10; i++) {
 //     const e = products[i];
 //     console.log(e.img);
 //     str += `
 //chọn mặc định giá trị in ra
+
 let products = JSON.parse(localStorage.getItem("product"))
+let arrC = []
+let arrB = []
+let arrA = []
+products.forEach(e => {
+    if (e.phanloai == "Loại C") {
+        arrC.push(e)
+    }
+    else if (e.phanloai == "Loại B") {
+        arrB.push(e)
+    } else {
+        arrA.push(e)
+    }
+})
+// console.log(arr);
 // products.push(...arr)
 // localStorage.setItem("product", JSON.stringify(products))
-function print() {
+function print(arr = products) {
     let str = ""
-    products.forEach(e =>
+    arr.forEach(e =>
         str += `<div class="row products mini">
                 <div class="item">
                     <div class="media">
                         <div class="thumbnail object-cover">
-                            <a href="#">
+                            <a>
                                 <img src="user/img/products/${e.img}" alt="">
                             </a>
                         </div>
@@ -132,7 +150,7 @@ function print() {
                         <div class="discount circle flexcenter"><span>50%</span></div>
                     </div>
                     <div class="content">
-                        <h3 class="main-links"><a href="#">${e.name}</a>
+                        <h3 class="main-links" onclick="hanDoclick(${e.id})"><a href = "#">${e.name}</a>
                         </h3>
                         <div class="price">
                             <span class="current">${e.sum}đ</span>
@@ -142,7 +160,7 @@ function print() {
                             
                             <p>Miễn phí vận chuyển</p>
                         </div>
-                            <button class="buttoncart">ADD to CART</button>
+                            <button class="buttoncart" onclick="addToCart(${e.id})">ADD to CART</button>
                     </div>
                 </div>
             </div>`
@@ -151,3 +169,35 @@ function print() {
     document.getElementById("product1111").innerHTML = str
 }
 print()
+
+function hanDoclick(id) {
+    sessionStorage.setItem("producdetail", JSON.stringify(id))
+    window.location.href = "user/description.html"
+}
+
+// const addToCart = (idProduct) => {
+//     let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
+//     if (userLogin == null) {
+//         alert("Vui lòng đăng nhập đề xem giở hàng");
+//         location.href = "/user/login.html";
+//     }
+//     // lấy ra số lượng mua
+
+//     // nếu sp đã tồn tại trong giỏ hàng thì tăng số lượng
+//     let indexCartItem = userLogin.cart.findIndex(
+//         (cartIt) => cartIt.idPro == idProduct
+//     );
+//     if (indexCartItem > -1) {
+//         // đã tồn tại
+//         alert("Đã tồn tại trong giỏ hàng!")
+//     } else {
+//         // chưa tồn tại , thêm mới
+//         let cartItem = {
+//             idPro: idProduct,
+//             quantity: 1,
+//         };
+//         userLogin.cart.push(cartItem);
+//     }
+//     sessionStorage.setItem("userlogin", JSON.stringify(userLogin));
+//     location.href = "/user/cart.html";
+// };
