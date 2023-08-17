@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <h1>Admin Panel</h1>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">D</div>
+            <div class="menu-text"><a href="/admin/admin.html">Dashboard</a></div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">U</div>
+            <div class="menu-text"><a href="user_management.html">User</a></div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">P</div>
+            <div class="menu-text"><a href="product_management.html">Product</a></div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">O</div>
+            <div class="menu-text"><a href="order_management.html">Order</a></div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">S</div>
+            <div class="menu-text">Settings</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h1>Welcome to the Admin Panel</h1>
+            <div class="search-container">
+                <input type="search" class="search-input" id="search" placeholder="Search">
+                <button type="button" class="search-btn" onclick="checkSearch()">Search</button>
+            </div>
+            <div class="user-avatar" onclick="toggleLogoutMenu(this)">
+                <img src="/imgage/products/apparel1.jpg" alt="">
+                <div class="logout-menu">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#" onclick="confirmLogout()">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Quản Lý Khách Hàng</h1>
+            <hr>
+            <div class="search_add_scope">
+                <div>
+                    <button class="btn btn_them" onclick="toggleForm()">Thêm mới</button>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>user_id</th>
+                        <th>username</th>
+                        <th>email</th>
+                        <th>fullname</th>
+                        <th>password</th>
+                        <th>role</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="action_col">
+                                <button class="btn btn_sua">Edit</button>
+                                <button class="btn btn_xoa">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="form_scope" class="hide">
+                <form action="" id="form">
+                    <h3>Thông tin user</h3>
+                    <div>
+                        <label for="username">username:</label>
+                        <input id="username" type="text" placeholder="" readonly>
+                    </div>
+
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="" readonly>
+                    </div>
+                    <div>
+                        <label for="full_name">FullName:</label>
+                        <input type="text" name="full_name" id="full_name" placeholder="" readonly>
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" readonly>
+                    </div>
+                    <div>
+                        <label for="role">Role:</label>
+                        <select id="role">
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="USER">USER</option>
+                        </select>
+                    </div>
+                    <div class="btn_them_spoce">
+                        <button class="btn btn_xoa" type="button" onclick="toggleForm()">Huy</button>
+                        <button class="btn btn_them" type="submit">Lưu</button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="js/user_management.js"></script>
+
+</html>
