@@ -30,7 +30,27 @@ if (userLogin != null) { // nếu có tài khoản đăng nhập
 
 
 const handlelLogout = () => {
+    //trước khi đăng xuất thì lưu giỏ hàng vào local
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // tìm vị trí của userlogin
+    let userLoginIndex = users.findIndex((user) => user.user_id == userLogin.user_id);
+
+    users[userLoginIndex] = userLogin;
+    // Lưu lại vào localStorage
+    localStorage.setItem("users", JSON.stringify(users))
+
+
+
+    // // trước khi đăng xuất  thì lưu giỏ hàng vào local
+    // let user = JSON.parse(localStorage.getItem("users")) || [];
+    // // tìm vị trí của userlogin
+    // let userLoginIndex = user.findIndex((user) => user.user_id == userLogin.user_id);
+    // users[userLoginIndex] = userLogin;
+    // //lưu lại trên localstogate
+    // localStorage.setItem("users", JSON.stringify(user))
     // thực hiện đăng xuất tài khoản
+
     sessionStorage.removeItem("userlogin");
     // load lại trang
     location.reload();
@@ -44,7 +64,6 @@ const handlelLogout = () => {
 // let str = ""
 // for (let i = 0; i < 10; i++) {
 //     const e = products[i];
-//     console.log(e.img);
 //     str += `
 //chọn mặc định giá trị in ra
 

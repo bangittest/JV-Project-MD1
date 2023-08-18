@@ -903,7 +903,7 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    display: none;
+    /* display: none; */
     background-color: white;
     border: 1px solid #ccc;
     list-style: none;
