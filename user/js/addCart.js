@@ -70,6 +70,8 @@ const handleDelete = (idPro) => {
         showCart();
     }
 }
+
+
 // hàm sử lí cập nhật
 const handleUpdate = (idPro) => {
     let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
@@ -87,4 +89,81 @@ const handleUpdate = (idPro) => {
     userLogin.cart[indexCartItem].quantity = quantity;
     sessionStorage.setItem("userlogin", JSON.stringify(userLogin))
     showCart();
+}
+
+
+
+let orders = JSON.parse(localStorage.getItem("orders")) || []
+
+// tạo hóa đơn 
+const handleCheckOutt = () => {
+    let order_id = getNewId(); // id hóa đơn tự tăng
+    let user_id = userLogin.user_id; // id người dùng đang đăng nhập
+
+    let orders_details = []; //  danh sách chi tiết hóa đơn
+    let total_sum = 0; // tổng tiền
+    for (let i = 0; i < userLogin.cart.length; i++) {
+        const element = userLogin.cart[i];
+        // element {}
+
+        //  tìm sản phẩm theo id 
+        let product = products.find(pro => pro.product_id == element.idProduct)
+        //tính tổn tiền
+        total_sum += product.sum * element.quantity;
+        // mỗi spp trong giỏ hàng sẽ là 1 chi tiết hoa đơn tỏng hóa đơn
+        let order_detail = {
+            product_id: element.idProduct,
+            product_name: product.name,
+            unit_sum: product.sum,
+            quantity: element.quantity
+        }
+        orders_details.push(order_detail);
+    }
+
+
+    let order_at = new Date().toLocaleString();
+    let status = 1;
+    let note = document.getElementById("note").value;
+
+    // tạo hóa đơn mới
+    let newOrder = {
+        order_id,
+        user_id,
+        order_at,
+        total_sum,
+        status,
+        note,
+        orders_details
+    }
+
+    // console.log(newOrder);
+    orders.push(newOrder);
+    // lưu vào local
+    localStorage.setItem("orders", JSON.stringify(orders));
+    // reset giỏ hàng
+    userLogin.cart = [];
+    sessionStorage.setItem("userlogin", JSON.stringify(userLogin));
+
+    // trước khi đăng xuất thì lưu giỏ hàng vào local
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // tìm vị trí của userlogin
+    let userLoginIndex = users.findIndex((user) => user.user_id == userLogin.user_id);
+
+    users[userLoginIndex] = userLogin;
+    // Lưu lại vào localStorage
+    localStorage.setItem("users", JSON.stringify(users))
+    alert("Đơn hàng đã được đặt")
+    location.reload();
+}
+// tạo id tự tăng  
+const getNewId = () => {
+    let idMax = 0;
+    for (let i = 0; i < orders.length; i++) {
+        const element = orders[i];
+        if (idMax < element.order_id) {
+            idMax = element.order_id;
+        }
+    }
+    return idMax + 1;
 }

@@ -780,12 +780,13 @@ form.search button:hover {
 /* -------------------c .products mini product-------------- */
 .products.mini .item {
     margin-bottom: 2em;
+    margin-right: 2.6rem;
 }
 
 .products.mini .media {
     width: 130px;
     height: 160px;
-    margin-left: 1.25em;
+    margin: 1.2rem 1.2rem;
 }
 
 .products.mini .content {
