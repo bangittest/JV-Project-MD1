@@ -1,24 +1,24 @@
 // thêm sản phẩm vào giỏ hàng
-const addToCart = (idProduct) => {
+const addToCart = (idPro) => {
     let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
     if (userLogin == null) {
         alert("Vui lòng đăng nhập đề xem giở hàng");
         location.href = "/user/login.html";
     }
     // lấy ra số lượng mua
-    let quantity = +document.getElementById("quantity_ty").value;
+    let quantity = +document.querySelector(".pro-qty > input").value;
 
     // nếu sp đã tồn tại trong giỏ hàng thì tăng số lượng
     let indexCartItem = userLogin.cart.findIndex(
-        (cartIt) => cartIt.idPro == idProduct
+        (cartIt) => cartIt.idProduct == idPro
     );
     if (indexCartItem > -1) {
         // đã tồn tại
-        userLogin.cart[indexCartItem].quantity = +userLogin.cart[indexCartItem].quantity + quantity;
+        userLogin.cart[indexCartItem].quantity += quantity;
     } else {
         // chưa tồn tại , thêm mới
         let cartItem = {
-            idPro: idProduct,
+            idPro: idPro,
             quantity: quantity,
         };
         userLogin.cart.push(cartItem);
@@ -27,143 +27,3 @@ const addToCart = (idProduct) => {
     location.href = "/user/cart.html";
 };
 
-const showCart = () => {
-    let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-    let products = JSON.parse(localStorage.getItem("product"))
-    let total = 0;
-    // recduce hàm tính tổng
-    let listCartItem = userLogin.cart.reduce((string, ct) => {
-        // find hàm có sẵn hàm này tìm được phần tử đầu tiên khi tìm được
-        //  giá trị đầu tiên thì trả về giá trị của nó ko thì trả về underfile
-        // lấy thông tin sp theo id
-        let product = products.find((p) => p.id == ct.idPro);
-        //công tiền 
-        total += +product.sum * ct.quantity;
-        return (
-            string +
-            `<tr>
-                    <td>${product.id}</td>
-                    <td><img src="/user/img/products/${product.img}" alt="#" class="product-image"></td>
-                    <td>${product.name}</td>
-                    <td>${product.sum}đ</td>
-                    <td><input type="number" class="quantity-input" id="quantity_${ct.idPro}" value="${ct.quantity}" min="1" ></td>
-                    <td>${+product.sum * ct.quantity}đ</td>
-                    <td class="action-btns">
-                        <button class="update-btn" onclick="handleUpdate(${ct.idPro})" >Update</button>
-                        <button class="remove-btn" onclick="handleDelete(${ct.idPro})" >Remove</button>
-                    </td>
-                </tr>`
-        )
-    }, "");
-    document.querySelector("tbody").innerHTML = listCartItem;
-    document.getElementById("total_All").innerHTML = `${total}đ`;
-};
-showCart()
-
-// XỬ lí xóa
-const handleDelete = (idPro) => {
-    let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-    if (confirm("Are you sure you want to delete")) {
-        let indexDelete = userLogin.cart.findIndex(ct => ct.idPro == idPro)
-        userLogin.cart.splice(indexDelete, 1);
-        sessionStorage.setItem("userlogin", JSON.stringify(userLogin))
-        showCart();
-    }
-}
-
-
-// hàm sử lí cập nhật
-const handleUpdate = (idPro) => {
-    let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
-    // lấy ra số lượng cần cập nhật
-    let quantity = +document.querySelector(`#quantity_${idPro}`).value
-    if (quantity < 1) {
-        alert("Số lượng tối thiểu là 1")
-        showCart()
-        return
-    }
-    // Láy ra vị trí cần cập nhật
-    let indexCartItem = userLogin.cart.findIndex(
-        (cartIt) => cartIt.idPro == idPro
-    );
-    userLogin.cart[indexCartItem].quantity = quantity;
-    sessionStorage.setItem("userlogin", JSON.stringify(userLogin))
-    showCart();
-}
-
-
-
-let orders = JSON.parse(localStorage.getItem("orders")) || []
-
-// tạo hóa đơn 
-const handleCheckOutt = () => {
-    let order_id = getNewId(); // id hóa đơn tự tăng
-    let user_id = userLogin.user_id; // id người dùng đang đăng nhập
-
-    let orders_details = []; //  danh sách chi tiết hóa đơn
-    let total_sum = 0; // tổng tiền
-    for (let i = 0; i < userLogin.cart.length; i++) {
-        const element = userLogin.cart[i];
-        // element {}
-
-        //  tìm sản phẩm theo id 
-        let product = products.find(pro => pro.product_id == element.idProduct)
-        //tính tổn tiền
-        total_sum += product.sum * element.quantity;
-        // mỗi spp trong giỏ hàng sẽ là 1 chi tiết hoa đơn tỏng hóa đơn
-        let order_detail = {
-            product_id: element.idProduct,
-            product_name: product.name,
-            unit_sum: product.sum,
-            quantity: element.quantity
-        }
-        orders_details.push(order_detail);
-    }
-
-
-    let order_at = new Date().toLocaleString();
-    let status = 1;
-    let note = document.getElementById("note").value;
-
-    // tạo hóa đơn mới
-    let newOrder = {
-        order_id,
-        user_id,
-        order_at,
-        total_sum,
-        status,
-        note,
-        orders_details
-    }
-
-    // console.log(newOrder);
-    orders.push(newOrder);
-    // lưu vào local
-    localStorage.setItem("orders", JSON.stringify(orders));
-    // reset giỏ hàng
-    userLogin.cart = [];
-    sessionStorage.setItem("userlogin", JSON.stringify(userLogin));
-
-    // trước khi đăng xuất thì lưu giỏ hàng vào local
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // tìm vị trí của userlogin
-    let userLoginIndex = users.findIndex((user) => user.user_id == userLogin.user_id);
-
-    users[userLoginIndex] = userLogin;
-    // Lưu lại vào localStorage
-    localStorage.setItem("users", JSON.stringify(users))
-    alert("Đơn hàng đã được đặt")
-    location.reload();
-}
-// tạo id tự tăng  
-const getNewId = () => {
-    let idMax = 0;
-    for (let i = 0; i < orders.length; i++) {
-        const element = orders[i];
-        if (idMax < element.order_id) {
-            idMax = element.order_id;
-        }
-    }
-    return idMax + 1;
-}

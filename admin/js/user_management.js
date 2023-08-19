@@ -2,15 +2,11 @@
 const data = JSON.parse(localStorage.getItem("users")) || []
 // let idGlobal = 1
 let indexUpdateGlobal = null
-const inputusername = document.getElementById("username")
-const inputemail = document.getElementById("email")
-const inputfullname = document.getElementById("full_name")
-const inputpassword = document.getElementById("password")
 const inputrole = document.getElementById("role")
-function Table() {
-    const data = JSON.parse(localStorage.getItem("users")) || []
+function Table(c = data) {
+    // c = JSON.parse(localStorage.getItem("users")) || []
     let stringHTML = "";
-    data.forEach(e =>
+    c.forEach(e =>
         stringHTML +=
         `
                     <tr>
@@ -40,10 +36,6 @@ function toggleForm(id) {
     if (id != undefined) {
         const indexUpdate = data.findIndex(e => e.user_id == id)
         indexUpdateGlobal = indexUpdate
-        inputusername.value = data[indexUpdate].username
-        inputemail.value = data[indexUpdate].email
-        inputfullname.value = data[indexUpdate].full_name
-        inputpassword.value = data[indexUpdate].password
         inputrole.value = data[indexUpdate].role
     } else {
         indexUpdateGlobal = null
@@ -55,10 +47,6 @@ document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault()
     const data = JSON.parse(localStorage.getItem("users")) || []
     if (indexUpdateGlobal != null) {
-        data[indexUpdateGlobal].username = inputusername.value
-        data[indexUpdateGlobal].email = inputemail.value
-        data[indexUpdateGlobal].full_name = inputfullname.value
-        data[indexUpdateGlobal].password = inputpassword.value
         data[indexUpdateGlobal].role = inputrole.value
         indexUpdateGlobal = null
         this.reset()
@@ -70,10 +58,6 @@ document.getElementById("form").addEventListener("submit", function (e) {
     }
     const users = {
         user_id: getNewId(),
-        username: inputusername.value,
-        email: inputemail.value,
-        full_name: inputfullname.value,
-        password: inputpassword.value,
         role: inputrole.value,
     }
     // idGlobal++
@@ -94,11 +78,12 @@ function deleteProduct(id) {
     }
     localStorage.setItem("users", JSON.stringify(data))
     Table()
+    location.reload()
 }
 
 function checkSearch() {
     let text = document.getElementById("search").value;
-    let foundStudent = data.filter(stu => stu.name.toLowerCase().includes(text.trim().toLowerCase()));
+    let foundStudent = data.filter(stu => stu.username.toLowerCase().includes(text.trim().toLowerCase()));
     Table(foundStudent);
 }
 // logic id tự tăng
@@ -112,19 +97,30 @@ function getNewId() {
     }
     return idMax + 1;
 }
+let totalProduct = data.length; // tổng số sp
+let count = 5;// số sp trên 1 trang
+let pageCurrent = 0;
+let totalPage = Math.ceil(totalProduct / count); // tổng số trang
+// console.log(totalPage);
 
+// đổ ra giao diện
+const showPagination = () => {
+    let links = "";
+    for (let i = 0; i < totalPage; i++) {
+        links += `<li class="page-item ${i == pageCurrent ? 'active' : ''}" onclick="handlePagination(${i})"><a class="page-link" href="#">${i + 1}</a></li>`
+    }
 
+    document.querySelector(".pagination").innerHTML = `
+${links}`
+}
 
-// function confirmLogout() {
-//     let result = confirm("bạn có chắc chắn muốn đăng xuất không");
-//     if (result) {
-//         // Thực hiện thao tác đăng xuất tại đây
-//         alert("Đăng xuất thành công!");
-//         window.location.href = "../admin/adminlogin.html"
-//     }
-//     // window.location.href = "../admin/adminlogin.html"
-// }
+// phần trang  : số trang hiện tại / số phần tử trên 1 trang
+const handlePagination = (page = 0) => {
+    pageCurrent = page
+    data.sort((a, b) => b.user_id - a.user_id);
+    let productPaginate = data.filter((p, index) => (index >= (pageCurrent * count) && index < (pageCurrent + 1) * count))
+    Table(productPaginate)
+    showPagination()
+}
+handlePagination();
 
-// function toggleLogoutMenu(avatar) {
-//     avatar.classList.toggle("active");
-// }

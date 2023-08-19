@@ -29,27 +29,28 @@
                                         <li>
                                             <div class="icon-large">
                                                 <form action="">
-                                                    <input class="spaking" type="search"
+                                                    <input id="search" class="spaking" type="search"
                                                         placeholder="Nhập từ khóa cần tìm...">
-                                                    <button class="spaking_1" type="submit">Seach</button>
+                                                    <button class="spaking_1" onclick="checkSearch()"
+                                                        type="button">Seach</button>
                                                 </form>
                                             </div>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <div class="icon-large">
                                                 <a href="user/login.html">Đăng nhập</a>
                                                 <i class="ri-logout-box-r-line"></i>
                                             </div>
-                                        </li>
-                                        <li>
+                                        </li> -->
+                                        <!-- <li>
                                             <div class="icon-large">
                                                 <a href="user/register.html">Đăng ký</a>
                                                 <i class="ri-user-add-line"></i>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <!-- <a href="/user/login.html"> -->
-                                            <div class="header__top__right__auth account">
+                                            <div class="header__top__right__auth account hiden">
                                             </div>
                                             <!-- </a> -->
                                         </li>
@@ -76,7 +77,7 @@
                             <li><a class="nav-link" href="#">Shop</a></li>
                             <li>
                                 <a class="nav-link" href="#">Sports
-                                    <div class="fly-item"><span>New!</span></div>
+                                    <div></div>
                                 </a>
                             </li>
                             <li><a class="nav-link" href="user/about.html">Về chúng tôi</a></li>
@@ -101,8 +102,8 @@
                                     </div>
                                     <div class="text-content flexcol">
                                         <h4>Giày thời trang</h4>
-                                        <h2><span></span>Đến Và Lấy Nó! <span><br>Thương Hiệu Mới
-                                                Shoes<span></span></span>
+                                        <h2><br>Thương Hiệu Mới
+                                            Shoes<span></span></span>
                                         </h2>
                                         <a href="#" class="primary-button">Shop Now</a>
                                     </div>
@@ -115,7 +116,7 @@
                                     </div>
                                     <div class="text-content flexcol">
                                         <h4>Thương Hiệu Thời Trang</h4>
-                                        <h2><span></span>Đến Và Lấy Nó!! <span><br>Brand new
+                                        <h2><span><br>Brand new
                                                 Shoes<span></span></span>
                                         </h2>
                                         <a href="#" class="primary-button">Shop Now</a>
@@ -129,7 +130,7 @@
                                     </div>
                                     <div class="text-content flexcol">
                                         <h4>Thương Hiệu Thời Trang</h4>
-                                        <h2><span></span>Đến Và Lấy Nó! <span><br>Brand new
+                                        <h2><span></span><span><br>Brand new
                                                 Shoes<span></span></span>
                                         </h2>
                                         <a href="#" class="primary-button">Shop Now</a>
@@ -143,7 +144,7 @@
                                     </div>
                                     <div class="text-content flexcol">
                                         <h4>Thương Hiệu Thời Trang</h4>
-                                        <h2><span></span>Đến Và Lấy Nó! <span><br>Brand new
+                                        <h2><span></span><span><br>Brand new
                                                 Shoes<span></span></span>
                                         </h2>
                                         <a href="#" class="primary-button">Shop Now</a>
@@ -243,259 +244,11 @@
                                             <div class="bar">
                                                 <div class="available"></div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row products mini">
-
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/apparel5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>33%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Áo Sơ Mi Lịch Lãm</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">127.999đ</span>
-                                            <span class="normal mini-text">189.984</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>297 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/apparel2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>33%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Áo Thun Ôm From</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">89.999đ</span>
-                                            <span class="normal mini-text">180.989</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>197 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/apparel3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>23%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Áo khoác Nữ Mùa Đông Dài</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">529.999đ</span>
-                                            <span class="normal mini-text">789.987</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>97 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/apparel1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>21%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Áo Khoác Nam Dài Mùa Đông</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">529.997đ</span>
-                                            <span class="normal mini-text">689.898</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>297 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row products mini">
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/shoe5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>53%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Giày Thể Thao Nam/Nữ</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">329.999đ</span>
-                                            <span class="normal mini-text">489.984</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>500 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/slider/slider1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>42%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Chân Váy Cho Nữ</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">229.998đ</span>
-                                            <span class="normal mini-text">389.988</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>899 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/slider/slider0.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>50%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Giày Thể Thao GUDETU Thoáng Khí Theo
-                                                Phong Cách</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">529.999đ</span>
-                                            <span class="normal mini-text">789.898</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>264 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="media">
-                                        <div class="thumbnail object-cover">
-                                            <a href="#">
-                                                <img src="user/img/products/shoe3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="hoverable">
-                                            <ul>
-                                                <li class="active"><a href="#"><i class="ri-heart-line"></i></a>
-                                                </li>
-                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
-                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="discount circle flexcenter"><span>60%</span></div>
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="main-links"><a href="#">Giày Thể Thao AF1 Nam/Nữ</a>
-                                        </h3>
-                                        <div class="price">
-                                            <span class="current">729.999đ</span>
-                                            <span class="normal mini-text">889.898</span>
-                                        </div>
-                                        <div class="mini-text">
-                                            <p>697 Đã bán</p>
-                                            <p>Miễn phí vận chuyển</p>
-                                        </div>
-                                    </div>
-                                </div>
-
+                            <div class="row products mini" id="rowproductsmini">
                             </div>
                         </div>
                     </div>
@@ -509,42 +262,20 @@
                     <div class="column">
                         <div class="products main flexwrap">
                             <div class="sectop flexitem">
-                                <h2><span class="circle"></span>Các Sản Phẩm Khác</h2>
+                                <h2><span class="circle" id="another"></span>Tất Cả Các Sản Phẩm</h2>
                             </div>
-
                         </div>
                         <div class="products main flexwrap">
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="buttonclick">
-            <style>
-                .buttonclick {
-                    text-align: center;
-                    text-decoration: underline;
-                }
-
-                .buttonclick>button {
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    /* background-color: rgba(165, 42, 42, 0.419); */
-                    color: rgba(165, 42, 42, 0.419);
-
-                }
-            </style>
             <button onclick=" print()">view All</button>
             <button onclick="print(arrA)">Giày</button>
             <button onclick="print(arrB)">Quần áo</button>
             <button onclick="print(arrC)">Điện tử</button>
-            <!-- <a href="" onclick=" print()">view All</a>
-            <a href="" onclick="print(arrA)">Loai A</a>
-            <a href="" onclick="print(arrA)">Loai B</a>
-            <a href="" onclick="print(arrA)">Loai C</a> -->
         </div>
         <div class="row_products_mini" id="product1111">
         </div>
@@ -591,8 +322,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="user/js/main.js"></script>
-
+    <script src="./user/js/main.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
         /* Đặt kiểu cho toàn bộ trang */
         /* Đặt kiểu cho toàn bộ trang */
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
 
-        }
+        } */
 
         nav ul {
             list-style: none;
@@ -22,8 +22,11 @@
         }
 
         .product-detail {
-            display: flex;
-            align-items: center;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: whitesmoke;
+            padding: 20px;
         }
 
         .product-images {
@@ -118,31 +121,29 @@
             margin-top: 1rem;
         }
 
-.image-navigation button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin: 0 0.5rem;
-}
+        .image-navigation button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            margin: 0 0.5rem;
+        }
 
-.image-navigation button:hover {
-    background-color: #2980b9;
-}
-.product-details{
-    margin-top: 40px ;
-}
-.product-details h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
+        .image-navigation button:hover {
+            background-color: #2980b9;
+        }
 
-.product-details p {
-  font-size: 1.2rem;
-  line-height: 1.4;
-}
+        .product-details {
+            margin-top: 40px;
+        }
 
-    
-    
-    
+        .product-details h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-details p {
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }

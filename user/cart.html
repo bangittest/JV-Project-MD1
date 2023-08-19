@@ -32,7 +32,7 @@
                                             </form>
                                         </div>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <div class="icon-large">
                                             <a href="login.html">Đăng nhập</a>
                                             <i class="ri-logout-box-r-line"></i>
@@ -43,18 +43,18 @@
                                             <a href="register.html">Đăng ký</a>
                                             <i class="ri-user-add-line"></i>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <div class="icon-large">
                                             <a href="/user/cart.html">Giỏ hàng(0)</a>
                                             <i class="ri-shopping-cart-line"></i>
                                         </div>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <div class="header__top__right__auth account">
 
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </nav>
                         </div>
@@ -72,7 +72,7 @@
                         <li><a href="#">Shop</a></li>
                         <li>
                             <a href="#">Sports
-                                <div class="fly-item"><span>New!</span></div>
+                                <div class="fly-item"></div>
                             </a>
                         </li>
                         <li><a href="/user/about.html">Về chúng tôi</a></li>
@@ -115,6 +115,9 @@
                 </tr> -->
                 <!-- Other rows -->
             </tbody>
+            <tfoot>
+
+            </tfoot>
         </table>
         <div class="cart-header">
             <button class="continue-btn"><a href="/main.html">Tiếp tục mua sắm</a></button>
@@ -124,7 +127,7 @@
             <div id="checkout">
                 <textarea id="note" cols="50" rows="2" placeholder="Ghi chú ..."></textarea>
                 <br>
-                <button onclick="handleCheckOutt()">Check Out</button>
+                <button onclick="handleCheckOut()">Check Out</button>
             </div>
         </div>
     </div>
@@ -167,8 +170,9 @@
         </div>
     </footer>
     Copyright © 2023. All Rights Reserved.
+
+    <script src="/user/js/cart.js"></script>
     <script src="/user/js/main.js"></script>
-    <script src="js/addCart.js"></script>
 </body>
 
 </html>

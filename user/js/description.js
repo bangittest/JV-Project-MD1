@@ -1,26 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const mainImage = document.getElementById("mainImage");
-    const thumbnails = document.querySelectorAll(".thubnai11");
-    const productDescription = document.querySelector(".product-details p");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const mainImage = document.getElementById("mainImage");
+//     const thumbnails = document.querySelectorAll(".thubnai11");
+//     const productDescription = document.querySelector(".product-details p");
 
-    // const descriptions = [
+// const descriptions = [
 
-    function showImage(index) {
-        if (index >= 0 && index < thumbnails.length) {
-            mainImage.src = thumbnails[index].getAttribute("src");
-            productDescription.textContent = descriptions[index];
-        }
-    }
+// function showImage(index) {
+//     if (index >= 0 && index < thumbnails.length) {
+//         mainImage.src = thumbnails[index].getAttribute("src");
+//         productDescription.textContent = descriptions[index];
+//     }
+// }
 
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener("click", function () {
-            showImage(index);
-        });
-    });
+//     thumbnails.forEach((thumbnail, index) => {
+//         thumbnail.addEventListener("click", function () {
+//             showImage(index);
+//         });
+//     });
 
-    // Hiển thị ảnh đầu tiên khi trang tải
-    showImage(0);
-});
+//     // Hiển thị ảnh đầu tiên khi trang tải
+//     showImage(0);
+// });
 
 
 
@@ -33,7 +33,7 @@ if (idPro) {
     console.log(product);
     document.querySelector(".product-detail").innerHTML = `<div class="product-images">
                         <div class="main-image">
-                            <img width="200px" src="" alt="" id="mainImage">
+                            <img width="200px" src="img/products/${product.img}" alt="" id="mainImage">
                         </div>
                         <div class="thumbnail-images">
                             <img width="200px" src="img/products/${product.img}" class="thubnai11">
@@ -52,8 +52,9 @@ if (idPro) {
 
                         </div>
                         <div class="quantity">
-                            <label for="quantity">Số lượng:</label> <br>
-                            <input type="number" id="quantity_ty" min="1" value="1">
+                            <div class="pro-qty">
+                                <input type="text" value="1">
+                            </div>
                         </div>
                         <div class="add-to-cart">
                             <button onclick="addToCart(${product.id})" class="add-to-cart-button">Thêm vào giỏ hàng</button>
