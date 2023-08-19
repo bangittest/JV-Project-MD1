@@ -80,6 +80,7 @@ let orders = JSON.parse(localStorage.getItem("orders")) || []
 
 // tạo hóa đơn
 const handleCheckOut = () => {
+    const products = JSON.parse(localStorage.getItem("product"))
     let order_id = getNewId(); // id hóa đơn tự tăng
     let user_id = userLogin.user_id; // id người dùng đang đăng nhập
 
@@ -112,7 +113,7 @@ const handleCheckOut = () => {
         order_id,
         user_id,
         order_at,
-        sum,
+        total,
         status,
         note,
         orders_details
@@ -136,7 +137,7 @@ const handleCheckOut = () => {
     // Lưu lại vào localStorage
     localStorage.setItem("users", JSON.stringify(users))
     alert("Đơn hàng đã được đặt")
-    // location.reload();
+    location.reload();
 }
 // tạo id tự tăng
 const getNewId = () => {

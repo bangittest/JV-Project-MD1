@@ -11,7 +11,7 @@ function Table(c = data) {
                     <tr>
                         <td>${e.order_id}</td>
                         <td>${e.order_at}</td>
-                        <td>${e.total_sum}</td>
+                        <td>${e.total}</td>
                         <td>${e.status}</td>
                         
                         <td>
