@@ -3,7 +3,6 @@
 let userLogin = JSON.parse(sessionStorage.getItem("userlogin"));
 // lấy ra vị trí cần chèn tên và avatar
 let divs = document.getElementsByClassName("account");
-// console.log(divs); 
 // kiẻm tra sự tồn tại
 if (userLogin != null) { // nếu có tài khoản đăng nhập
     for (let i = 0; i < divs.length; i++) {
@@ -41,15 +40,6 @@ const handlelLogout = () => {
     // Lưu lại vào localStorage
     localStorage.setItem("users", JSON.stringify(users))
 
-
-
-    // // trước khi đăng xuất  thì lưu giỏ hàng vào local
-    // let user = JSON.parse(localStorage.getItem("users")) || [];
-    // // tìm vị trí của userlogin
-    // let userLoginIndex = user.findIndex((user) => user.user_id == userLogin.user_id);
-    // users[userLoginIndex] = userLogin;
-    // //lưu lại trên localstogate
-    // localStorage.setItem("users", JSON.stringify(user))
     // thực hiện đăng xuất tài khoản
 
     sessionStorage.removeItem("userlogin");
@@ -176,21 +166,17 @@ function hanDoclick(id) {
     window.location.href = "user/description.html"
 }
 
-
-
-
-
 function checkSearch() {
     let text = document.getElementById("search").value;
     let foundStudent = products.filter(stu => stu.name.toLowerCase().includes(text.trim().toLowerCase()));
     print(foundStudent)
     location.href = "#another"
 }
-// document.getElementById("search").addEventListener("keydown", (e) => {
-//     if (e.keyCode == 13) {
-//         checkSearch()
-//     }
-// })
+document.getElementById("search").addEventListener("keydown", (e) => {
+    if (e.keyCode == 13) {
+        checkSearch()
+    }
+})
 
 
 

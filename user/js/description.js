@@ -1,31 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const mainImage = document.getElementById("mainImage");
-//     const thumbnails = document.querySelectorAll(".thubnai11");
-//     const productDescription = document.querySelector(".product-details p");
-
-// const descriptions = [
-
-// function showImage(index) {
-//     if (index >= 0 && index < thumbnails.length) {
-//         mainImage.src = thumbnails[index].getAttribute("src");
-//         productDescription.textContent = descriptions[index];
-//     }
-// }
-
-//     thumbnails.forEach((thumbnail, index) => {
-//         thumbnail.addEventListener("click", function () {
-//             showImage(index);
-//         });
-//     });
-
-//     // Hiển thị ảnh đầu tiên khi trang tải
-//     showImage(0);
-// });
-
-
-
-
-
 let idPro = JSON.parse(sessionStorage.getItem("producdetail"))
 if (idPro) {
     let products = JSON.parse(localStorage.getItem("product"))

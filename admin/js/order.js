@@ -11,7 +11,7 @@ function Table(c = data) {
                     <tr>
                         <td>${e.order_id}</td>
                         <td>${e.order_at}</td>
-                        <td>${e.total}</td>
+                        <td>${e.total}đ</td>
                         <td>${e.status}</td>
                         
                         <td>
@@ -66,11 +66,6 @@ document.getElementById("form").addEventListener("submit", function (e) {
 })
 
 
-// function checkSearch() {
-//     let text = document.getElementById("search").value;
-//     let foundStudent = data.filter(stu => stu.order_id.toLowerCase().includes(text.trim().toLowerCase()));
-//     Table(foundStudent);
-// }
 let totalProduct = data.length; // tổng số sp
 let count = 5;// số sp trên 1 trang
 let pageCurrent = 0;

@@ -35,9 +35,10 @@ function showCart() {
     `;
     });
     document.querySelector("tbody").innerHTML = stringHTML;
-    document.querySelector("tfoot").innerHTML = ` <tr>
-   <td colspan="8" style="text-align: center;">Tổng tiền : ${total}$</td>
- </tr>`;
+    //     document.querySelector("tfoot").innerHTML = ` <tr>
+    //    <td colspan="8" style="text-align: center;">Tổng tiền : ${total}$</td>
+    //  </tr>`;
+    document.getElementById("total_All").innerHTML = `${total}đ`
 }
 showCart();
 

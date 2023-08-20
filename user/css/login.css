@@ -1,13 +1,16 @@
-*{
+* {
   font-family: Arial, Helvetica, sans-serif;
 }
-body{
-    font-weight: normal;
+
+body {
+  font-weight: normal;
 }
-.header-main{
+
+.header-main {
 
   position: relative;
 }
+
 .carousel-indicators {
   margin: 0;
 }
@@ -17,12 +20,9 @@ body{
   display: flex;
   background-color: #120635a3;
   color: white;
-  /* font-size: 1rem; */
-  font-family: Arial, Helvetica, sans-serif;
   justify-content: space-around;
   text-align: center;
   align-items: center;
-  /* margin-top: 100px; */
 }
 
 .top-selection p {
@@ -32,13 +32,15 @@ body{
 
 .main-selection {
   padding: 20px;
-    font-weight: normal;
+  font-weight: normal;
 }
+
 .main-selection div {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
+
 .main-selection div label {
   margin-bottom: 5px;
   font-size: 0.9rem;
@@ -49,6 +51,7 @@ body{
   padding: 4px 8px;
   border: 1px solid #ccc;
 }
+
 .main-selection .login-btn {
   background-color: #333;
   width: 100px;
@@ -58,23 +61,25 @@ body{
 }
 
 .main-selection button {
- border-radius: 5px;
- border:none;
- border: 1px solid rgba(0, 0, 0, 0.461);
- padding: 10px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.461);
+  padding: 10px;
 }
 
 .main-selection button:hover {
   background-color: #333;
   color: white;
 }
-.top-selection>p{
+
+.top-selection>p {
   margin-top: 1rem;
 }
-.col-7 {                        
-  width: 500px;                        
-  border: 1px solid rgba(0, 0, 0, 0.487);                                
-  padding: 40px;                                
-  border-radius: 10px;                            
+
+.col-7 {
+  width: 500px;
+  border: 1px solid rgba(0, 0, 0, 0.487);
+  padding: 40px;
+  border-radius: 10px;
   margin: 0 auto;
 }
